@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "686888595780",
+    "firebase_url": "https://league-manager-9bb12.firebaseio.com",
+    "project_id": "league-manager-9bb12",
+    "storage_bucket": "league-manager-9bb12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686888595780:android:7bcf19f8601bce11",
+        "android_client_info": {
+          "package_name": "com.example.toni_.tfc_league"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686888595780-j35einhbtr5rgasfns0radrgau8oif44.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.toni_.tfc_league",
+            "certificate_hash": "ef48fa55e8211fba5ce75bb9580d739e8da5afbd"
+          }
+        },
+        {
+          "client_id": "686888595780-pg8vgnu40eg2eb3el5ql4nfn38cv9o95.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoDfmOVB2QgfeNgQPulmtng8-FNTdYW2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686888595780-pg8vgnu40eg2eb3el5ql4nfn38cv9o95.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

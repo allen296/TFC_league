@@ -1,7 +1,9 @@
 package com.example.toni_.tfc_league;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -30,5 +32,15 @@ public class main extends AppCompatActivity {
         l1.setAnimation(uptodown); //le damos al linear 1 y 2 la animacion uptodown y downtoup respectivamente
         l2.setAnimation(downtoup);
 
+    }
+
+    public void clickRegistrarse(View view) {
+        Intent intent = new Intent(main.this,registro.class);
+        startActivity(intent);
+    }
+
+    public void clickLogin(View view) {
+        Intent intent = new Intent (main.this,login.class);
+        startActivity(intent);
     }
 }
