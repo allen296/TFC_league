@@ -18,6 +18,12 @@ package com.example.toni_.tfc_league;
         import com.google.firebase.auth.FirebaseAuthUserCollisionException;
         import com.google.firebase.auth.FirebaseUser;
 
+        import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStreamReader;
+        import java.net.MalformedURLException;
+        import java.net.URL;
+
 public class login extends AppCompatActivity {
 
     private EditText textoCorreo;
@@ -37,6 +43,27 @@ public class login extends AppCompatActivity {
         textoContrasena = (EditText) findViewById(R.id.textoContrasena);
         botonLogin = (Button) findViewById(R.id.botonLogin);
         progressDialog = new ProgressDialog(this);
+
+ /*       URL lol = null;
+        try {
+            lol = new URL("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/allen296?api_key=RGAPI-abdecd69-907b-47af-abba-1bdf10b7498f");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        BufferedReader in = null;
+        try {
+            in = new BufferedReader(new InputStreamReader(lol.openStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String lolApiJson = null;
+        try {
+            lolApiJson = in.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(login.this,lolApiJson, Toast.LENGTH_LONG).show();
+        */
     }
 
     private void loginUsuario(){
