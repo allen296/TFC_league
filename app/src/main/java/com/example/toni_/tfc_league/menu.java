@@ -3,6 +3,7 @@ package com.example.toni_.tfc_league;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -128,17 +129,17 @@ public class menu extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.nav_jugadores) {
+            setTitle("Jugadores");
+            jugadores jugadores = new jugadores();
+            FragmentManager fragmentmanager=getSupportFragmentManager();
+            fragmentmanager.beginTransaction().replace(R.id.fragment,jugadores).commit();
+        } else if (id == R.id.nav_torneo1) {
+            setTitle("Torneo");
+            torneo torneo = new torneo();
+            FragmentManager fragmentmanager=getSupportFragmentManager();
+            fragmentmanager.beginTransaction().replace(R.id.fragment,torneo).commit();
+        } else if (id == R.id.nav_ajustes) {
 
         }
 

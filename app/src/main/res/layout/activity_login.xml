@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Correo"
+                android:text="prueba@antonio.es"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Contraseña"
+                android:text="prueba"
                 android:inputType="textPassword" />
 
             <Button
