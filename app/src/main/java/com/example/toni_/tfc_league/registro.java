@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
-public class registro extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
 
     private EditText textoCorreo;
     private EditText textoContrasena;
@@ -63,17 +62,17 @@ public class registro extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                    Toast.makeText(registro.this,"Se ha registrado el usuario con el email: "+ textoCorreo.getText(),
+                    Toast.makeText(Registro.this,"Se ha registrado el usuario con el email: "+ textoCorreo.getText(),
                             Toast.LENGTH_LONG).show();
                 } else {
 
                     if (task.getException() instanceof FirebaseAuthUserCollisionException){ //Se el usuario esta creado lanza exception
-                        Toast.makeText(registro.this,"El usuario ya existe",
+                        Toast.makeText(Registro.this,"El usuario ya existe",
                                 Toast.LENGTH_LONG).show();
                     }
 
 
-                    Toast.makeText(registro.this,"No se ha podido registrar el usuario",
+                    Toast.makeText(Registro.this,"No se ha podido registrar el usuario",
                             Toast.LENGTH_LONG).show();
                 }
 

@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class main extends AppCompatActivity {
+public class Main extends AppCompatActivity {
     //Creacion de variables
     LinearLayout l1,l2;
     Button buttonRegistrarseClass;
@@ -35,12 +35,12 @@ public class main extends AppCompatActivity {
     }
 
     public void clickRegistrarse(View view) {
-        Intent intent = new Intent(main.this,registro.class);
+        Intent intent = new Intent(Main.this,Registro.class);
         startActivity(intent);
     }
 
     public void clickLogin(View view) {
-        Intent intent = new Intent (main.this,login.class);
+        Intent intent = new Intent (Main.this,Login.class);
         startActivity(intent);
     }
 }

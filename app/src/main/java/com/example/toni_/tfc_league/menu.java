@@ -11,18 +11,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-public class menu extends AppCompatActivity
+public class Menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String user="names";
@@ -102,7 +96,7 @@ public class menu extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
@@ -131,14 +125,14 @@ public class menu extends AppCompatActivity
 
         if (id == R.id.nav_jugadores) {
             setTitle("Jugadores");
-            jugadores jugadores = new jugadores();
+            Jugadores Jugadores = new Jugadores();
             FragmentManager fragmentmanager=getSupportFragmentManager();
-            fragmentmanager.beginTransaction().replace(R.id.fragment,jugadores).commit();
+            fragmentmanager.beginTransaction().replace(R.id.fragment, Jugadores).commit();
         } else if (id == R.id.nav_torneo1) {
             setTitle("Torneo");
-            torneo torneo = new torneo();
+            Torneo Torneo = new Torneo();
             FragmentManager fragmentmanager=getSupportFragmentManager();
-            fragmentmanager.beginTransaction().replace(R.id.fragment,torneo).commit();
+            fragmentmanager.beginTransaction().replace(R.id.fragment, Torneo).commit();
         } else if (id == R.id.nav_ajustes) {
 
         }

@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class jugadores extends Fragment {
+public class Jugadores extends Fragment {
 
 
-    public jugadores() {
+    public Jugadores() {
         // Required empty public constructor
     }
 
@@ -26,4 +26,5 @@ public class jugadores extends Fragment {
         return inflater.inflate(R.layout.fragment_jugadores, container, false);
     }
 
+    
 }

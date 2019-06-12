@@ -15,16 +15,9 @@ package com.example.toni_.tfc_league;
         import com.google.android.gms.tasks.Task;
         import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseAuthUserCollisionException;
         import com.google.firebase.auth.FirebaseUser;
 
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
-        import java.net.MalformedURLException;
-        import java.net.URL;
-
-public class login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     private EditText textoCorreo;
     private EditText textoContrasena;
@@ -89,14 +82,14 @@ public class login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
-                    Toast.makeText(login.this,"Bienvenido "+ textoCorreo.getText(),
+                    Toast.makeText(Login.this,"Bienvenido "+ textoCorreo.getText(),
                             Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent (login.this,menu.class);
+                    Intent intent = new Intent (Login.this,Menu.class);
                    // intent.putExtra(menu.user,correo);
                     startActivity(intent);
                 } else {
 
-                    Toast.makeText(login.this,"No se ha podido iniciar sesión",
+                    Toast.makeText(Login.this,"No se ha podido iniciar sesión",
                             Toast.LENGTH_LONG).show();
                 }
 
