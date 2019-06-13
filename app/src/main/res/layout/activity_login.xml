@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Contraseña"
-                android:text="prueba"
+                android:text="111111"
                 android:inputType="textPassword" />
 
             <Button

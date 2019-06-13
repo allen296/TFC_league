@@ -2,10 +2,12 @@ package com.example.toni_.tfc_league;
 
         import android.app.ProgressDialog;
         import android.content.Intent;
+        import android.os.CpuUsageInfo;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.text.TextUtils;
+        import android.util.Log;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
@@ -16,6 +18,17 @@ package com.example.toni_.tfc_league;
         import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseUser;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.database.ValueEventListener;
+
+        import java.io.BufferedReader;
+        import java.io.IOException;
+        import java.io.InputStreamReader;
+        import java.net.MalformedURLException;
+        import java.net.URL;
 
 public class Login extends AppCompatActivity {
 
@@ -24,6 +37,7 @@ public class Login extends AppCompatActivity {
     private Button botonLogin;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private DatabaseReference firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +50,8 @@ public class Login extends AppCompatActivity {
         textoContrasena = (EditText) findViewById(R.id.textoContrasena);
         botonLogin = (Button) findViewById(R.id.botonLogin);
         progressDialog = new ProgressDialog(this);
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference("Usuarios");
+
 
  /*       URL lol = null;
         try {
@@ -60,8 +76,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginUsuario(){
-        final String correo = textoCorreo.getText().toString().trim();
-        String contrasena = textoContrasena.getText().toString().trim();
+        final String correo = textoCorreo.getText().toString();
+        String contrasena = textoContrasena.getText().toString();
 
         if (TextUtils.isEmpty(correo)) {
             Toast.makeText(this, "Ingresa un email válido", Toast.LENGTH_LONG).show();
@@ -81,12 +97,25 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    String idUser = firebaseAuth.getCurrentUser().getUid();
                     Toast.makeText(Login.this,"Bienvenido "+ textoCorreo.getText(),
                             Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent (Login.this,Menu.class);
-                   // intent.putExtra(menu.user,correo);
-                    startActivity(intent);
+                    final Intent intent = new Intent (Login.this,Menu.class);
+                    firebaseDatabase.child(idUser).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                            intent.putExtra("usuario", usuario); // pasa el usuaurio a la pantalla de menu
+                            // intent.putExtra(menu.user,correo);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                 } else {
 
                     Toast.makeText(Login.this,"No se ha podido iniciar sesión",

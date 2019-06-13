@@ -1,5 +1,6 @@
 package com.example.toni_.tfc_league;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,15 +38,6 @@ public class Menu extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -55,27 +47,17 @@ public class Menu extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // cogemos el usuario que viene del login
+        Intent i = getIntent();
+        Usuario usuario = (Usuario) i.getSerializableExtra("usuario");
 
-    /*    URL lol = null;
-        try {
-            lol = new URL("https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/allen296?api_key=RGAPI-abdecd69-907b-47af-abba-1bdf10b7498f");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(new InputStreamReader(lol.openStream()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String lolApiJson = null;
-        try {
-            lolApiJson = in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Toast.makeText(menu.this,lolApiJson, Toast.LENGTH_LONG).show();
-        */
+        View headerView = navigationView.getHeaderView(0);
+        TextView money = headerView.findViewById(R.id.textMoney);
+        money.setText(usuario.getDineroTorneo()+"");
+
+        TextView correo = headerView.findViewById(R.id.textser);
+        correo.setText(usuario.getCorreo());
+
 
         //https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/allen296?api_key=RGAPI-abdecd69-907b-47af-abba-1bdf10b7498f
         //https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/1LrrHR7HD5Tfv1Mme7CQrOwuuFvR43N1gHFC0WSgDK5W3vc?api_key=RGAPI-abdecd69-907b-47af-abba-1bdf10b7498f

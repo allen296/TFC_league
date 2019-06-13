@@ -32,6 +32,8 @@ public class Main extends AppCompatActivity {
         l1.setAnimation(uptodown); //le damos al linear 1 y 2 la animacion uptodown y downtoup respectivamente
         l2.setAnimation(downtoup);
 
+
+
     }
 
     public void clickRegistrarse(View view) {

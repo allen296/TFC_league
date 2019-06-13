@@ -1,6 +1,7 @@
 package com.example.toni_.tfc_league;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Registro extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class Registro extends AppCompatActivity {
     private Button botonRegistrar;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private DatabaseReference firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +40,14 @@ public class Registro extends AppCompatActivity {
         textoContrasena = (EditText) findViewById(R.id.textoContrasena);
         botonRegistrar = (Button) findViewById(R.id.botonRegistrar);
         progressDialog = new ProgressDialog(this);
+
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference("Usuarios");
     }
 
     private void registrarUsuario() {
 
-        String correo = textoCorreo.getText().toString().trim();
-        String contrasena = textoContrasena.getText().toString().trim();
+        final String correo = textoCorreo.getText().toString();
+        String contrasena = textoContrasena.getText().toString();
 
         if (TextUtils.isEmpty(correo)) {
             Toast.makeText(this, "Ingresa un email válido", Toast.LENGTH_LONG).show();
@@ -53,6 +59,11 @@ public class Registro extends AppCompatActivity {
             return;
         }
 
+        if (contrasena.length()<6){
+            Toast.makeText(this, "Ingresa una contraseña de 6 o mas caracteres", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         progressDialog.setMessage("Realizando el registro...");
         progressDialog.show();
 
@@ -61,9 +72,12 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    String idUser = firebaseAuth.getCurrentUser().getUid();
+                    Usuario usuario = new Usuario(correo, 1000);
+                    firebaseDatabase.child(idUser).setValue(usuario);
                     Toast.makeText(Registro.this,"Se ha registrado el usuario con el email: "+ textoCorreo.getText(),
                             Toast.LENGTH_LONG).show();
+
                 } else {
 
                     if (task.getException() instanceof FirebaseAuthUserCollisionException){ //Se el usuario esta creado lanza exception
@@ -84,5 +98,9 @@ public class Registro extends AppCompatActivity {
 
     public void clickRegistrar(View view) {
         registrarUsuario();
+
+        progressDialog.show();
+        progressDialog.dismiss();
+
     }
 }
