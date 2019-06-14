@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,43 +37,48 @@ public class Jugadores extends Fragment {
     private DatabaseReference firebaseDatabaseEquipo;
     private Button aceptar;
 
-/*    private TextView textFaker;
-    private TextView textKhan;
-    private TextView textHaru;
-    private TextView textTeddy;
-    private TextView textEffort;
+    private ImageButton buttonmadlions5;
 
-    private TextView textoBoton1g2;
-    private TextView textoBoton2g2;
-    private TextView textoBoton3g2;
-    private TextView textoBoton4g2;
-    private TextView textoBoton5g2;
+    /*    private TextView textFaker;
+        private TextView textKhan;
+        private TextView textHaru;
+        private TextView textTeddy;
+        private TextView textEffort;
 
-    private TextView buttonorigen1;
-    private TextView buttonorigen2;
-    private TextView buttonorigen3;
-    private TextView buttonorigen4;
-    private TextView buttonorigen5;
+        private TextView textoBoton1g2;
+        private TextView textoBoton2g2;
+        private TextView textoBoton3g2;
+        private TextView textoBoton4g2;
+        private TextView textoBoton5g2;
 
-    private TextView buttonfnatic1;
-    private TextView buttonfnatic2;
-    private TextView buttonfnatic3;
-    private TextView buttonfnatic4;
-    private TextView buttonfnatic5;
+        private TextView buttonorigen1;
+        private TextView buttonorigen2;
+        private TextView buttonorigen3;
+        private TextView buttonorigen4;
+        private TextView buttonorigen5;
 
-    private TextView buttongiants1;
-    private TextView buttongiants2;
-    private TextView buttongiants3;
-    private TextView buttongiants4;
-    private TextView buttongiants5;
+        private TextView buttonfnatic1;
+        private TextView buttonfnatic2;
+        private TextView buttonfnatic3;
+        private TextView buttonfnatic4;
+        private TextView buttonfnatic5;
 
-    private TextView buttonmadlions1;
-    private TextView buttonmadlions2;
-    private TextView buttonmadlions3;
-    private TextView buttonmadlions4;
-    private TextView buttonmadlions5;
+        private TextView buttongiants1;
+        private TextView buttongiants2;
+        private TextView buttongiants3;
+        private TextView buttongiants4;
+        private TextView buttongiants5;
 
-*/
+        private TextView buttonmadlions1;
+        private TextView buttonmadlions2;
+        private TextView buttonmadlions3;
+        private TextView buttonmadlions4;
+        private TextView buttonmadlions5;
+        */
+
+    public static final ArrayList<Jugador> equipo = new ArrayList<>();
+    private String idUser;
+
     public Jugadores() {
         // Required empty public constructor
         firebaseDatabaseJugador = FirebaseDatabase.getInstance().getReference("Jugadores");
@@ -86,32 +92,37 @@ public class Jugadores extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_jugadores, container, false);
 
-        final ArrayList<Jugador> equipo = new ArrayList<>();
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
+        final String idUser = firebaseAuth.getCurrentUser().getUid();
 
         //BOTON ACEPTAR EQUIPO
-        Button botonAceptar = view.findViewById(R.id.aceptarEquipo);
+        final Button botonAceptar = view.findViewById(R.id.aceptarEquipo);
 
         botonAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseDatabaseEquipo.push().setValue(equipo);
+                Equipo e = new Equipo(equipo);
+                firebaseDatabaseEquipo.child(idUser).setValue(e);
             }
         });
 
         //BOTON 1 SKT
         final ImageButton buttonskt1 = view.findViewById(R.id.buttonskt1);
-        System.out.println("hola");
+
         buttonskt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
-
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Faker", "challenger", 600, 2000, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonskt1.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
+
             }
         });
 
@@ -124,11 +135,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Khan", "challenger", 550, 1800, 15);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonskt2.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -141,11 +154,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Haru", "challenger", 570, 18100, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonskt3.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -158,11 +173,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Teddy", "challenger", 530, 1750, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonskt4.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -175,11 +192,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Effort", "challenger", 630, 1900, 10);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonskt5.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -193,11 +212,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Caps", "challenger", 600, 2000, 15);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttong21.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -210,11 +231,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Wunder", "challenger", 585, 1800, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttong22.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -227,11 +250,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Jankos", "challenger", 540, 1700, 12);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttong23.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -244,11 +269,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Perkz", "challenger", 570, 1850, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttong24.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -261,11 +288,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Mikyx", "challenger", 550, 1600, 9);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttong25.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -279,11 +308,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Nukeduck", "challenger", 550, 1650, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonorigen1.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -296,11 +327,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Mithy", "challenger", 570, 1800, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonorigen2.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -313,11 +346,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Alphari", "challenger", 650, 2100, 16);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonorigen3.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -330,11 +365,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Kold", "challenger", 550, 1750, 8);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonorigen4.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -347,11 +384,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Patrik", "challenger", 580, 1800, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonorigen5.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -365,11 +404,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Bwipo", "challenger", 620, 2200, 15);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonfnatic1.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -382,11 +423,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Broxah", "challenger", 610, 2100, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonfnatic2.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -399,11 +442,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Nemesis", "challenger", 540, 1500, 8);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonfnatic3.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -416,11 +461,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Rekkles", "challenger", 670, 2500, 15);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonfnatic4.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -433,11 +480,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Hylissang", "challenger", 550, 1800, 10);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonfnatic5.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -451,11 +500,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Th3Antonio", "challenger", 400, 1300, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttongiants1.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -468,11 +519,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Razork", "challenger", 430, 1100, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttongiants2.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -485,11 +538,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Milica", "challenger", 350, 1000, 9);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttongiants3.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -502,11 +557,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Deadly", "challenger", 460, 1300, 12);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttongiants4.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -519,11 +576,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Denky", "challenger", 450, 1250, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttongiants5.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -537,11 +596,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Yoppa", "challenger", 450, 1300, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonmadlions1.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -554,11 +615,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Sharp", "challenger", 400, 1200, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonmadlions2.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -571,11 +634,13 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Czekolad", "challenger", 400, 1210, 12);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonmadlions3.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
@@ -588,39 +653,47 @@ public class Jugadores extends Fragment {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Samux", "challenger", 460, 1400, 13);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonmadlions4.setVisibility(View.INVISIBLE);
+
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
         //BOTON 5 MAD LIONS
-        final ImageButton buttonmadlions5 = view.findViewById(R.id.buttonmadlions5);
+        buttonmadlions5 = view.findViewById(R.id.buttonmadlions5);
         System.out.println("hola");
+
         buttonmadlions5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newAppKey = firebaseDatabaseJugador.push().getKey();
 
 
-                Jugador jugador = new Jugador(newAppKey);
+                Jugador jugador = new Jugador(newAppKey, "Falco", "challenger", 400, 1300, 11);
                 firebaseDatabaseJugador.child(newAppKey).setValue(jugador);
                 equipo.add(jugador);
 
                 buttonmadlions5.setVisibility(View.INVISIBLE);
+                comprobarListado(equipo, botonAceptar);
             }
         });
 
-
-        if (equipo.size()==5) botonAceptar.setVisibility(View.VISIBLE);
-
-        // Inflate the layout for this fragment
-
         //botonAceptar.setVisibility(View.INVISIBLE);
+        // Inflate the layout for this fragment
         return view;
 
+    }
+
+    public void comprobarListado(ArrayList<Jugador> equipo, Button botonAceptar) {
+        if (equipo.size() == 5) {
+            botonAceptar.setVisibility(View.VISIBLE);
+            buttonmadlions5.setClickable(false);
+
+        }
     }
 
 /*    private void leerJson(){

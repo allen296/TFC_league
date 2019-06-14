@@ -1,19 +1,28 @@
 package com.example.toni_.tfc_league;
 
-public class Jugador {
+import java.io.Serializable;
+
+public class Jugador implements Serializable {
 
     String liga;
+    String nombre;
     int lp;
     double valor;
     String id;
     int victorias;
-    
 
-    public Jugador(String id){
+    public Jugador() {
+
+    }
+
+    public Jugador(String id) {
         this.id = id;
     }
 
-    public Jugador(String liga, int lp, double valor, int victorias) {
+    public Jugador(String id, String nombre, String liga, int lp, double valor, int victorias) {
+
+        this.id = id;
+        this.nombre = nombre;
         this.liga = liga;
         this.lp = lp;
         this.valor = valor;
@@ -58,5 +67,13 @@ public class Jugador {
 
     public void setVictorias(int victorias) {
         this.victorias = victorias;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }
