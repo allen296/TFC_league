@@ -2,19 +2,22 @@ package com.example.toni_.tfc_league;
 
 public class Jugador {
 
-    String liga = "Challenger";
-    int lp = 700;
-    double valor = 2000;
-    private String id;
+    String liga;
+    int lp;
+    double valor;
+    String id;
+    int victorias;
+    
 
     public Jugador(String id){
         this.id = id;
     }
 
-    public Jugador(String liga, int lp, double valor) {
+    public Jugador(String liga, int lp, double valor, int victorias) {
         this.liga = liga;
         this.lp = lp;
         this.valor = valor;
+        this.victorias = victorias;
     }
 
     public String getId() {
@@ -47,5 +50,13 @@ public class Jugador {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public int getVictorias() {
+        return victorias;
+    }
+
+    public void setVictorias(int victorias) {
+        this.victorias = victorias;
     }
 }

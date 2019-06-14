@@ -34,6 +34,14 @@
             android:orientation="vertical"
             android:paddingTop="30dp">
 
+            <Button
+                android:id="@+id/aceptarEquipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:text="Añadir Equipo"/>
+
             <TextView
                 android:id="@+id/champion_select"
                 android:layout_width="fill_parent"
@@ -65,7 +73,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/buttonskt4"
+                        android:id="@+id/buttonskt1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="55"
@@ -88,7 +96,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/buttonskt3"
+                        android:id="@+id/buttonskt2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="55"
@@ -111,7 +119,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/buttonskt2"
+                        android:id="@+id/buttonskt3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="55"
@@ -134,7 +142,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/buttonskt1"
+                        android:id="@+id/buttonskt4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="55"
@@ -241,7 +249,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/buttonsg23"
+                        android:id="@+id/buttong23"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="55"
@@ -658,7 +666,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/buttongiant4"
+                        android:id="@+id/buttongiants4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="55"
