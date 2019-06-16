@@ -12,23 +12,25 @@
             android:id="@+id/nav_torneo1"
             android:icon="@drawable/poro"
             android:title="Torneo" />
- <!--       <item
-            android:id="@+id/nav_ajustes"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Slideshow" /> -->
+
     </group>
 
- <!--   <item android:title="Communicate">
+   <item android:title="Ajustes">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_ajustes"
+                android:icon="@drawable/poro"
+                android:title="Eliminar equipo" />
+            <!--  <item
+                  android:id="@+id/nav_share"
+                  android:icon="@drawable/ic_menu_share"
+                  android:title="Share" />
+              <item
+                  android:id="@+id/nav_send"
+                  android:icon="@drawable/ic_menu_send"
+                  android:title="Send" />
+                  -->
         </menu>
     </item>
--->
+
 </menu>

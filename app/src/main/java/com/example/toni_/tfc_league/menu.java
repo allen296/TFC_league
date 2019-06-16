@@ -135,6 +135,13 @@ public class Menu extends AppCompatActivity
             FragmentManager fragmentmanager = getSupportFragmentManager();
             fragmentmanager.beginTransaction().replace(R.id.fragment, Torneo).commit();
 
+        }else if (id == R.id.nav_ajustes) {
+        setTitle("Equipo");
+        EliminarEquipo EliminarEquipo = new EliminarEquipo();
+        FragmentManager fragmentmanager = getSupportFragmentManager();
+        fragmentmanager.beginTransaction().replace(R.id.fragment, EliminarEquipo).commit();
+            Toast.makeText(Menu.this,"Working progress",
+                    Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -143,6 +150,7 @@ public class Menu extends AppCompatActivity
     }
 
     //Recupera el equipo del usuario logeado
+
 
     private void recuperarEquipo() {
         DatabaseReference equipo = FirebaseDatabase.getInstance().getReference("Equipos");

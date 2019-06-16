@@ -63,10 +63,18 @@ public class Torneo extends Fragment {
         View v = inflater.inflate(R.layout.fragment_torneo, container, false);
         TextView jugador1 = v.findViewById(R.id.jugador1);
         ImageView botonLuchar = (ImageView) v.findViewById(R.id.botonLuchar);
+        Button botonNuevo = v.findViewById(R.id.botonNuevo);
         botonLuchar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 realizarBatalla(v);
+            }
+        });
+
+        botonNuevo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualizarEnemigo(v);
             }
         });
 
@@ -75,7 +83,19 @@ public class Torneo extends Fragment {
         // Inflate the layout for this fragment
         return v;
     }
+    private void actualizarEnemigo(View view) {
+        int a = rand.nextInt(Jugadores.equipoEnemigo.size());
+        int b = rand.nextInt(Jugadores.equipoEnemigo.size());
+        int c = rand.nextInt(Jugadores.equipoEnemigo.size());
+        int d = rand.nextInt(Jugadores.equipoEnemigo.size());
+        int e = rand.nextInt(Jugadores.equipoEnemigo.size());
 
+        enemigo1.setText(Jugadores.equipoEnemigo.get(a).getNombre());
+        enemigo2.setText(Jugadores.equipoEnemigo.get(b).getNombre());
+        enemigo3.setText(Jugadores.equipoEnemigo.get(c).getNombre());
+        enemigo4.setText(Jugadores.equipoEnemigo.get(d).getNombre());
+        enemigo5.setText(Jugadores.equipoEnemigo.get(e).getNombre());
+    }
     private void realizarBatalla(View view) {
         if (jugador1.getText() != "") {
             int puntosLigaMiEquipo = 0;
@@ -90,7 +110,7 @@ public class Torneo extends Fragment {
                         break;
                 }
             }
-            Toast.makeText(view.getContext(), puntosLigaMiEquipo + " Amigo", Toast.LENGTH_LONG).show();
+
 
             int puntosLigaEnemigo = 0;
 
@@ -148,8 +168,6 @@ public class Torneo extends Fragment {
                 default:
                     break;
             }
-
-            Toast.makeText(view.getContext(), puntosLigaEnemigo + " Enemigoooooooo", Toast.LENGTH_LONG).show();
 
             Random rand = new Random();
             int n = rand.nextInt(100);
