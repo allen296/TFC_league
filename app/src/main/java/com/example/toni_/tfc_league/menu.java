@@ -125,9 +125,7 @@ public class Menu extends AppCompatActivity
             FragmentManager fragmentmanager = getSupportFragmentManager();
             fragmentmanager.beginTransaction().replace(R.id.fragment, Torneo).commit();
 
-        } else if (id == R.id.nav_ajustes) {
-
-        }
+        } 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
