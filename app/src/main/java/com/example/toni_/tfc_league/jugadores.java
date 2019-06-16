@@ -37,44 +37,43 @@ public class Jugadores extends Fragment {
     private DatabaseReference firebaseDatabaseEquipo;
     private Button aceptar;
 
+    private ImageButton buttonskt1;
+    private ImageButton buttonskt2;
+    private ImageButton buttonskt3;
+    private ImageButton buttonskt4;
+    private ImageButton buttonskt5;
+
+    private ImageButton buttong21;
+    private ImageButton buttong22;
+    private ImageButton buttong23;
+    private ImageButton buttong24;
+    private ImageButton buttong25;
+
+    private ImageButton buttonorigen1;
+    private ImageButton buttonorigen2;
+    private ImageButton buttonorigen3;
+    private ImageButton buttonorigen4;
+    private ImageButton buttonorigen5;
+
+    private ImageButton buttonfnatic1;
+    private ImageButton buttonfnatic2;
+    private ImageButton buttonfnatic3;
+    private ImageButton buttonfnatic4;
+    private ImageButton buttonfnatic5;
+
+    private ImageButton buttongiants1;
+    private ImageButton buttongiants2;
+    private ImageButton buttongiants3;
+    private ImageButton buttongiants4;
+    private ImageButton buttongiants5;
+
+    private ImageButton buttonmadlions1;
+    private ImageButton buttonmadlions2;
+    private ImageButton buttonmadlions3;
+    private ImageButton buttonmadlions4;
     private ImageButton buttonmadlions5;
 
-    /*    private TextView textFaker;
-        private TextView textKhan;
-        private TextView textHaru;
-        private TextView textTeddy;
-        private TextView textEffort;
 
-        private TextView textoBoton1g2;
-        private TextView textoBoton2g2;
-        private TextView textoBoton3g2;
-        private TextView textoBoton4g2;
-        private TextView textoBoton5g2;
-
-        private TextView buttonorigen1;
-        private TextView buttonorigen2;
-        private TextView buttonorigen3;
-        private TextView buttonorigen4;
-        private TextView buttonorigen5;
-
-        private TextView buttonfnatic1;
-        private TextView buttonfnatic2;
-        private TextView buttonfnatic3;
-        private TextView buttonfnatic4;
-        private TextView buttonfnatic5;
-
-        private TextView buttongiants1;
-        private TextView buttongiants2;
-        private TextView buttongiants3;
-        private TextView buttongiants4;
-        private TextView buttongiants5;
-
-        private TextView buttonmadlions1;
-        private TextView buttonmadlions2;
-        private TextView buttonmadlions3;
-        private TextView buttonmadlions4;
-        private TextView buttonmadlions5;
-        */
 
     public static final ArrayList<Jugador> equipo = new ArrayList<>();
     private String idUser;
@@ -108,7 +107,7 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 1 SKT
-        final ImageButton buttonskt1 = view.findViewById(R.id.buttonskt1);
+        buttonskt1 = view.findViewById(R.id.buttonskt1);
 
         buttonskt1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,8 +126,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 2 SKT
-        final ImageButton buttonskt2 = view.findViewById(R.id.buttonskt2);
-        System.out.println("hola");
+        buttonskt2 = view.findViewById(R.id.buttonskt2);
+
         buttonskt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,8 +145,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 3 SKT
-        final ImageButton buttonskt3 = view.findViewById(R.id.buttonskt3);
-        System.out.println("hola");
+        buttonskt3 = view.findViewById(R.id.buttonskt3);
+
         buttonskt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -165,8 +164,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 4 SKT
-        final ImageButton buttonskt4 = view.findViewById(R.id.buttonskt4);
-        System.out.println("hola");
+        buttonskt4 = view.findViewById(R.id.buttonskt4);
+
         buttonskt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,8 +183,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 5 SKT
-        final ImageButton buttonskt5 = view.findViewById(R.id.buttonskt5);
-        System.out.println("hola");
+        buttonskt5 = view.findViewById(R.id.buttonskt5);
+
         buttonskt5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,8 +203,8 @@ public class Jugadores extends Fragment {
 
 
         //BOTON 1 G2
-        final ImageButton buttong21 = view.findViewById(R.id.buttong21);
-        System.out.println("hola");
+        buttong21 = view.findViewById(R.id.buttong21);
+
         buttong21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,8 +222,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 2 G2
-        final ImageButton buttong22 = view.findViewById(R.id.buttong22);
-        System.out.println("hola");
+        buttong22 = view.findViewById(R.id.buttong22);
+
         buttong22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -242,8 +241,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 3 G2
-        final ImageButton buttong23 = view.findViewById(R.id.buttong23);
-        System.out.println("hola");
+        buttong23 = view.findViewById(R.id.buttong23);
+
         buttong23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -261,8 +260,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 4 G2
-        final ImageButton buttong24 = view.findViewById(R.id.buttong24);
-        System.out.println("hola");
+        buttong24 = view.findViewById(R.id.buttong24);
+
         buttong24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,8 +279,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 5 G2
-        final ImageButton buttong25 = view.findViewById(R.id.buttong25);
-        System.out.println("hola");
+        buttong25 = view.findViewById(R.id.buttong25);
+
         buttong25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -300,8 +299,8 @@ public class Jugadores extends Fragment {
 
 
         //BOTON 1 ORIGEN
-        final ImageButton buttonorigen1 = view.findViewById(R.id.buttonorigen1);
-        System.out.println("hola");
+        buttonorigen1 = view.findViewById(R.id.buttonorigen1);
+
         buttonorigen1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -319,8 +318,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 2 ORIGEN
-        final ImageButton buttonorigen2 = view.findViewById(R.id.buttonorigen2);
-        System.out.println("hola");
+        buttonorigen2 = view.findViewById(R.id.buttonorigen2);
+
         buttonorigen2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -338,8 +337,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 3 ORIGEN
-        final ImageButton buttonorigen3 = view.findViewById(R.id.buttonorigen3);
-        System.out.println("hola");
+        buttonorigen3 = view.findViewById(R.id.buttonorigen3);
+
         buttonorigen3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -357,8 +356,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 4 ORIGEN
-        final ImageButton buttonorigen4 = view.findViewById(R.id.buttonorigen4);
-        System.out.println("hola");
+        buttonorigen4 = view.findViewById(R.id.buttonorigen4);
+
         buttonorigen4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -376,8 +375,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 5 ORIGEN
-        final ImageButton buttonorigen5 = view.findViewById(R.id.buttonorigen5);
-        System.out.println("hola");
+        buttonorigen5 = view.findViewById(R.id.buttonorigen5);
+
         buttonorigen5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -396,8 +395,8 @@ public class Jugadores extends Fragment {
 
 
         //BOTON 1 FNATIC
-        final ImageButton buttonfnatic1 = view.findViewById(R.id.buttonfnatic1);
-        System.out.println("hola");
+        buttonfnatic1 = view.findViewById(R.id.buttonfnatic1);
+
         buttonfnatic1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -415,8 +414,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 2 FNATIC
-        final ImageButton buttonfnatic2 = view.findViewById(R.id.buttonfnatic2);
-        System.out.println("hola");
+        buttonfnatic2 = view.findViewById(R.id.buttonfnatic2);
+
         buttonfnatic2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -434,8 +433,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 3 FNATIC
-        final ImageButton buttonfnatic3 = view.findViewById(R.id.buttonfnatic3);
-        System.out.println("hola");
+        buttonfnatic3 = view.findViewById(R.id.buttonfnatic3);
+
         buttonfnatic3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -453,8 +452,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 4 FNATIC
-        final ImageButton buttonfnatic4 = view.findViewById(R.id.buttonfnatic4);
-        System.out.println("hola");
+        buttonfnatic4 = view.findViewById(R.id.buttonfnatic4);
+
         buttonfnatic4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -472,8 +471,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 5 FNATIC
-        final ImageButton buttonfnatic5 = view.findViewById(R.id.buttonfnatic5);
-        System.out.println("hola");
+        buttonfnatic5 = view.findViewById(R.id.buttonfnatic5);
+
         buttonfnatic5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -492,8 +491,8 @@ public class Jugadores extends Fragment {
 
 
         //BOTON 1 GIANTS
-        final ImageButton buttongiants1 = view.findViewById(R.id.buttongiants1);
-        System.out.println("hola");
+        buttongiants1 = view.findViewById(R.id.buttongiants1);
+
         buttongiants1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -511,8 +510,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 2 GIANTS
-        final ImageButton buttongiants2 = view.findViewById(R.id.buttongiants2);
-        System.out.println("hola");
+        buttongiants2 = view.findViewById(R.id.buttongiants2);
+
         buttongiants2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -530,8 +529,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 3 GIANTS
-        final ImageButton buttongiants3 = view.findViewById(R.id.buttongiants3);
-        System.out.println("hola");
+        buttongiants3 = view.findViewById(R.id.buttongiants3);
+
         buttongiants3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -549,8 +548,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 4 GIANTS
-        final ImageButton buttongiants4 = view.findViewById(R.id.buttongiants4);
-        System.out.println("hola");
+        buttongiants4 = view.findViewById(R.id.buttongiants4);
+
         buttongiants4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -568,8 +567,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 5 GIANTS
-        final ImageButton buttongiants5 = view.findViewById(R.id.buttongiants5);
-        System.out.println("hola");
+        buttongiants5 = view.findViewById(R.id.buttongiants5);
+
         buttongiants5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -588,8 +587,8 @@ public class Jugadores extends Fragment {
 
 
         //BOTON 1 MAD LIONS
-        final ImageButton buttonmadlions1 = view.findViewById(R.id.buttonmadlions1);
-        System.out.println("hola");
+        buttonmadlions1 = view.findViewById(R.id.buttonmadlions1);
+
         buttonmadlions1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -607,8 +606,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 2 MAD LIONS
-        final ImageButton buttonmadlions2 = view.findViewById(R.id.buttonmadlions2);
-        System.out.println("hola");
+        buttonmadlions2 = view.findViewById(R.id.buttonmadlions2);
+
         buttonmadlions2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -626,8 +625,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 3 MAD LIONS
-        final ImageButton buttonmadlions3 = view.findViewById(R.id.buttonmadlions3);
-        System.out.println("hola");
+        buttonmadlions3 = view.findViewById(R.id.buttonmadlions3);
+
         buttonmadlions3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -645,8 +644,8 @@ public class Jugadores extends Fragment {
         });
 
         //BOTON 4 MAD LIONS
-        final ImageButton buttonmadlions4 = view.findViewById(R.id.buttonmadlions4);
-        System.out.println("hola");
+        buttonmadlions4 = view.findViewById(R.id.buttonmadlions4);
+
         buttonmadlions4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -665,7 +664,6 @@ public class Jugadores extends Fragment {
 
         //BOTON 5 MAD LIONS
         buttonmadlions5 = view.findViewById(R.id.buttonmadlions5);
-        System.out.println("hola");
 
         buttonmadlions5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -682,7 +680,6 @@ public class Jugadores extends Fragment {
             }
         });
 
-        //botonAceptar.setVisibility(View.INVISIBLE);
         // Inflate the layout for this fragment
         return view;
 
@@ -691,6 +688,35 @@ public class Jugadores extends Fragment {
     public void comprobarListado(ArrayList<Jugador> equipo, Button botonAceptar) {
         if (equipo.size() == 5) {
             botonAceptar.setVisibility(View.VISIBLE);
+            buttonskt1.setClickable(false);
+            buttonskt2.setClickable(false);
+            buttonskt3.setClickable(false);
+            buttonskt4.setClickable(false);
+            buttonskt5.setClickable(false);
+            buttong21.setClickable(false);
+            buttong22.setClickable(false);
+            buttong23.setClickable(false);
+            buttong24.setClickable(false);
+            buttong25.setClickable(false);
+            buttonorigen1.setClickable(false);
+            buttonorigen2.setClickable(false);
+            buttonorigen3.setClickable(false);
+            buttonorigen4.setClickable(false);
+            buttonorigen5.setClickable(false);
+            buttonfnatic1.setClickable(false);
+            buttonfnatic2.setClickable(false);
+            buttonfnatic3.setClickable(false);
+            buttonfnatic4.setClickable(false);
+            buttonfnatic5.setClickable(false);
+            buttongiants1.setClickable(false);
+            buttongiants2.setClickable(false);
+            buttongiants3.setClickable(false);
+            buttongiants4.setClickable(false);
+            buttongiants5.setClickable(false);
+            buttonmadlions1.setClickable(false);
+            buttonmadlions2.setClickable(false);
+            buttonmadlions3.setClickable(false);
+            buttonmadlions4.setClickable(false);
             buttonmadlions5.setClickable(false);
 
         }
