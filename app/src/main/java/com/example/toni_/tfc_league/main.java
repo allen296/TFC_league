@@ -43,6 +43,7 @@ public class Main extends AppCompatActivity {
 
     }
 
+    //onClicks para acceder a Registro y Login
     public void clickRegistrarse(View view) {
 
         Intent intent = new Intent(Main.this,Registro.class);

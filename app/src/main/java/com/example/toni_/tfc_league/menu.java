@@ -44,6 +44,7 @@ public class Menu extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Relacionamos los elementos con en layout
         setContentView(R.layout.activity_menu);
 
         textoUsuario = (TextView) findViewById(R.id.textser);
@@ -122,6 +123,7 @@ public class Menu extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //Lanza los fragments seleccionados en el content menu
         if (id == R.id.nav_jugadores) {
             setTitle("Jugadores");
             Jugadores Jugadores = new Jugadores();
@@ -140,6 +142,8 @@ public class Menu extends AppCompatActivity
         return true;
     }
 
+    //Recupera el equipo del usuario logeado
+
     private void recuperarEquipo() {
         DatabaseReference equipo = FirebaseDatabase.getInstance().getReference("Equipos");
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -149,6 +153,8 @@ public class Menu extends AppCompatActivity
         String idUser = firebaseAuth.getCurrentUser().getUid();
 
         equipo.child(idUser).addValueEventListener(new ValueEventListener() {
+
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {

@@ -20,6 +20,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
+/**
+ * @author ToNi_
+ * Clase que permite el registro de los diferentes usuarios utilizando correo electronico y contraseña,
+ * que se almacena de forma segura en firebase
+ */
+
 public class Registro extends AppCompatActivity {
 
     private EditText textoCorreo;
@@ -44,11 +51,17 @@ public class Registro extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("Usuarios");
     }
 
+    /**
+     * @author ToNi_
+     * Metodo para registrar el usuario en firebase
+     */
+
     private void registrarUsuario() {
 
         final String correo = textoCorreo.getText().toString();
         String contrasena = textoContrasena.getText().toString();
 
+        //Hace las comprobaciones  de correo electronico y contraseñas y te lanza toast si ocurre cualquiera estos casos
         if (TextUtils.isEmpty(correo)) {
             Toast.makeText(this, "Ingresa un email válido", Toast.LENGTH_LONG).show();
             return;
@@ -67,6 +80,11 @@ public class Registro extends AppCompatActivity {
         progressDialog.setMessage("Realizando el registro...");
         progressDialog.show();
 
+        /**
+         * @author ToNi_
+         * Asignamos correo y contraseña y lo añadimos a firebase en el caso de que cumpla con
+         * los requisitos de contraseña y usuario
+         */
         firebaseAuth.createUserWithEmailAndPassword(correo, contrasena).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
             @Override
