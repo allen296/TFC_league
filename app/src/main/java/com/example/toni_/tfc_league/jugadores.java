@@ -29,6 +29,8 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 /**
+ * @author ToNi_
+ * Clase que gestiona el equipo y los añade a la base de datos firebase
  * A simple {@link Fragment} subclass.
  */
 public class Jugadores extends Fragment {

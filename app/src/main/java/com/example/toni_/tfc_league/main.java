@@ -9,6 +9,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+
+/**
+ * @author ToNi_
+ * Clase principal que se lanza al inicio de la aplicacion. Esta, añade una animacion a los elementos del layout y te permite
+ * acceder a los layouts de inicio de sesion y registro
+ */
+
 public class Main extends AppCompatActivity {
     //Creacion de variables
     LinearLayout l1,l2;
@@ -37,11 +44,13 @@ public class Main extends AppCompatActivity {
     }
 
     public void clickRegistrarse(View view) {
+
         Intent intent = new Intent(Main.this,Registro.class);
         startActivity(intent);
     }
 
     public void clickLogin(View view) {
+
         Intent intent = new Intent (Main.this,Login.class);
         startActivity(intent);
     }

@@ -25,8 +25,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
+/**
+ * @author ToNi_
+ * Clase que permite el movimiento entre los distintos layouts de la aplicacion una vez iniciamos sesion con exito
+ * y asigna funcionalidad a los botones
+ */
+
+
 public class Menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
 
     public static final String user = "names";
     TextView textoUsuario;
@@ -40,9 +48,6 @@ public class Menu extends AppCompatActivity
 
         textoUsuario = (TextView) findViewById(R.id.textser);
 
-        //String user= getIntent().getStringExtra("names");
-        //textoUsuario.setText(user);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -55,7 +60,7 @@ public class Menu extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // cogemos el usuario que viene del login
+        //Cogemos el usuario que viene del login y el dinero de la base de datos para añadirlos a la informacion de usuario
         Intent i = getIntent();
         Usuario usuario = (Usuario) i.getSerializableExtra("usuario");
 
@@ -66,10 +71,13 @@ public class Menu extends AppCompatActivity
         TextView correo = headerView.findViewById(R.id.textser);
         correo.setText(usuario.getCorreo());
 
+        //Crea el fragment para llamarlo como inicial en el content menu
         setTitle("Jugadores");
         Jugadores Jugadores = new Jugadores();
         FragmentManager fragmentmanager = getSupportFragmentManager();
         fragmentmanager.beginTransaction().replace(R.id.fragment, Jugadores).commit();
+
+        //Llamadas que tendriamos que realizar a la API para conseguir los datos de los jugadores
 
         //https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/allen296?api_key=RGAPI-abdecd69-907b-47af-abba-1bdf10b7498f
         //https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/1LrrHR7HD5Tfv1Mme7CQrOwuuFvR43N1gHFC0WSgDK5W3vc?api_key=RGAPI-abdecd69-907b-47af-abba-1bdf10b7498f
@@ -102,7 +110,7 @@ public class Menu extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -125,7 +133,7 @@ public class Menu extends AppCompatActivity
             FragmentManager fragmentmanager = getSupportFragmentManager();
             fragmentmanager.beginTransaction().replace(R.id.fragment, Torneo).commit();
 
-        } 
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -154,6 +162,13 @@ public class Menu extends AppCompatActivity
             }
         });
 
+    }
+
+    public void cerrarSesion(MenuItem item) {
+
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(Menu.this,Main.class);
+        startActivity(intent);
     }
 }
 
