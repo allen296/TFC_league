@@ -41,6 +41,13 @@ public class Torneo extends Fragment {
     private TextView enemigo4;
     private TextView enemigo5;
 
+    Random rand = new Random();
+    int a = rand.nextInt(Jugadores.equipoEnemigo.size());
+    int b = rand.nextInt(Jugadores.equipoEnemigo.size());
+    int c = rand.nextInt(Jugadores.equipoEnemigo.size());
+    int d = rand.nextInt(Jugadores.equipoEnemigo.size());
+    int e = rand.nextInt(Jugadores.equipoEnemigo.size());
+
     private Equipo equipoActual;
 
     public Torneo() {
@@ -50,6 +57,8 @@ public class Torneo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
 
         View v = inflater.inflate(R.layout.fragment_torneo, container, false);
         TextView jugador1 = v.findViewById(R.id.jugador1);
@@ -81,25 +90,100 @@ public class Torneo extends Fragment {
                         break;
                 }
             }
-            Toast.makeText(view.getContext(), puntosLigaMiEquipo + "", Toast.LENGTH_LONG).show();
+            Toast.makeText(view.getContext(), puntosLigaMiEquipo + " Amigo", Toast.LENGTH_LONG).show();
 
             int puntosLigaEnemigo = 0;
-            for (int e = 0; e < 5; e++) {
-                puntosLigaEnemigo = puntosLigaEnemigo + Jugadores.equipoEnemigo.get(e).getLp()+Jugadores.equipoEnemigo.get(e).getVictorias();
-                switch (Jugadores.equipoEnemigo.get(e).getLiga()) {
-                    case "Challenger":
-                        puntosLigaEnemigo = puntosLigaEnemigo + 900;
-                        break;
 
-                    default:
-                        break;
-                }
+            //Enemigo 1
+            puntosLigaEnemigo = puntosLigaEnemigo + Jugadores.equipoEnemigo.get(a).getLp()+Jugadores.equipoEnemigo.get(a).getVictorias();
+            switch (Jugadores.equipoEnemigo.get(a).getLiga()) {
+                case "Challenger":
+                    puntosLigaEnemigo = puntosLigaEnemigo + 900;
+                    break;
+
+                default:
+                    break;
             }
-            Toast.makeText(view.getContext(), puntosLigaEnemigo + "", Toast.LENGTH_LONG).show();
 
-            if (puntosLigaMiEquipo-puntosLigaEnemigo<=(-10)){
-                Random rand = new Random();
-                int n = rand.nextInt(100);
+            //Enemigo 2
+            puntosLigaEnemigo = puntosLigaEnemigo + Jugadores.equipoEnemigo.get(b).getLp()+Jugadores.equipoEnemigo.get(b).getVictorias();
+            switch (Jugadores.equipoEnemigo.get(b).getLiga()) {
+                case "Challenger":
+                    puntosLigaEnemigo = puntosLigaEnemigo + 900;
+                    break;
+
+                default:
+                    break;
+            }
+
+            //Enemigo 3
+            puntosLigaEnemigo = puntosLigaEnemigo + Jugadores.equipoEnemigo.get(c).getLp()+Jugadores.equipoEnemigo.get(c).getVictorias();
+            switch (Jugadores.equipoEnemigo.get(c).getLiga()) {
+                case "Challenger":
+                    puntosLigaEnemigo = puntosLigaEnemigo + 900;
+                    break;
+
+                default:
+                    break;
+            }
+
+            //Enemigo 4
+            puntosLigaEnemigo = puntosLigaEnemigo + Jugadores.equipoEnemigo.get(d).getLp()+Jugadores.equipoEnemigo.get(d).getVictorias();
+            switch (Jugadores.equipoEnemigo.get(d).getLiga()) {
+                case "Challenger":
+                    puntosLigaEnemigo = puntosLigaEnemigo + 900;
+                    break;
+
+                default:
+                    break;
+            }
+
+            //Enemigo 5
+            puntosLigaEnemigo = puntosLigaEnemigo + Jugadores.equipoEnemigo.get(e).getLp()+Jugadores.equipoEnemigo.get(e).getVictorias();
+            switch (Jugadores.equipoEnemigo.get(e).getLiga()) {
+                case "Challenger":
+                    puntosLigaEnemigo = puntosLigaEnemigo + 900;
+                    break;
+
+                default:
+                    break;
+            }
+
+            Toast.makeText(view.getContext(), puntosLigaEnemigo + " Enemigoooooooo", Toast.LENGTH_LONG).show();
+
+            Random rand = new Random();
+            int n = rand.nextInt(100);
+
+            if (puntosLigaMiEquipo-puntosLigaEnemigo<=-20){
+                if (n<=30){
+                    Toast.makeText(view.getContext(), "HAS GANADO", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(view.getContext(), "HAS PERDIDO", Toast.LENGTH_LONG).show();
+                }
+            }else if ((puntosLigaMiEquipo-puntosLigaEnemigo>-20)&&(puntosLigaMiEquipo-puntosLigaEnemigo<=-10)){
+                if (n<=40){
+                    Toast.makeText(view.getContext(), "HAS GANADO", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(view.getContext(), "HAS PERDIDO", Toast.LENGTH_LONG).show();
+                }
+            }else if ((puntosLigaMiEquipo-puntosLigaEnemigo>-10)&&(puntosLigaMiEquipo-puntosLigaEnemigo<=10)){
+                if (n<=50){
+                    Toast.makeText(view.getContext(), "HAS GANADO", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(view.getContext(), "HAS PERDIDO", Toast.LENGTH_LONG).show();
+                }
+            }else if ((puntosLigaMiEquipo-puntosLigaEnemigo>10)&&(puntosLigaMiEquipo-puntosLigaEnemigo<=20)){
+                if (n<=60){
+                    Toast.makeText(view.getContext(), "HAS GANADO", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(view.getContext(), "HAS PERDIDO", Toast.LENGTH_LONG).show();
+                }
+            }else if (puntosLigaMiEquipo-puntosLigaEnemigo>20){
+                if (n<=70){
+                    Toast.makeText(view.getContext(), "HAS GANADO", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(view.getContext(), "HAS PERDIDO", Toast.LENGTH_LONG).show();
+                }
             }
 
         } else {
@@ -138,11 +222,11 @@ public class Torneo extends Fragment {
                     jugador4.setText(equipoActual.getEquipo().get(3).getNombre());
                     jugador5.setText(equipoActual.getEquipo().get(4).getNombre());
 
-                    enemigo1.setText(Jugadores.equipoEnemigo.get(0).getNombre());
-                    enemigo2.setText(Jugadores.equipoEnemigo.get(1).getNombre());
-                    enemigo3.setText(Jugadores.equipoEnemigo.get(2).getNombre());
-                    enemigo4.setText(Jugadores.equipoEnemigo.get(3).getNombre());
-                    enemigo5.setText(Jugadores.equipoEnemigo.get(4).getNombre());
+                    enemigo1.setText(Jugadores.equipoEnemigo.get(a).getNombre());
+                    enemigo2.setText(Jugadores.equipoEnemigo.get(b).getNombre());
+                    enemigo3.setText(Jugadores.equipoEnemigo.get(c).getNombre());
+                    enemigo4.setText(Jugadores.equipoEnemigo.get(d).getNombre());
+                    enemigo5.setText(Jugadores.equipoEnemigo.get(e).getNombre());
 
                 }
             }
