@@ -83,7 +83,7 @@ public class Jugadores extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
+        //Añadimos todos los posibles jugadores
 
         Jugador jugador1 = new Jugador("1", "Faker", "challenger", 600, 2000, 13);
         equipoEnemigo.add(jugador1);
@@ -153,7 +153,7 @@ public class Jugadores extends Fragment {
 
         final String idUser = firebaseAuth.getCurrentUser().getUid();
 
-        //BOTON ACEPTAR EQUIPO
+        //BOTON ACEPTAR EQUIPO, añade los jugadores añadidos al equipo a la base de datos
         final Button botonAceptar = view.findViewById(R.id.aceptarEquipo);
 
         botonAceptar.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +164,9 @@ public class Jugadores extends Fragment {
             }
         });
 
-        //BOTON 1 SKT
+        //BOTON 1 SKT, añade el jugador a la lista de equipo, elimina el jugador de la lista de posibles jugadores enemigos
+        //para evitar que se enfrenten a si mismos, el boton se vuelve invisible para dar a entender al usuario que está seleccionado ya y
+        //comprueba que el equipo sea de 5 o no para bloquear el resto de botones.
         buttonskt1 = view.findViewById(R.id.buttonskt1);
 
         buttonskt1.setOnClickListener(new View.OnClickListener() {
@@ -755,6 +757,10 @@ public class Jugadores extends Fragment {
 
     }
 
+    /**
+     * @author ToNi_
+     * Metodo que bloquea los botones si el equipo es igual a 5
+     */
     public void comprobarListado(ArrayList<Jugador> equipo, Button botonAceptar) {
         if (equipo.size() == 5) {
             botonAceptar.setVisibility(View.VISIBLE);

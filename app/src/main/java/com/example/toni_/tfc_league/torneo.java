@@ -25,6 +25,9 @@ import java.util.Random;
 
 
 /**
+ * @author ToNi_
+ * Clase que gestiona el enfrentamiento entre el equipo del usuario y el enemigo,
+ * asi como muestra en los elementos la formacion de tu equipo y el contrario
  * A simple {@link Fragment} subclass.
  */
 public class Torneo extends Fragment {
@@ -83,6 +86,11 @@ public class Torneo extends Fragment {
         // Inflate the layout for this fragment
         return v;
     }
+
+    /**
+     * @author ToNi_
+     * Metodo que crea un nuevo equipo enemigo para comprobar las distintas posibilidades en el combate
+     */
     private void actualizarEnemigo(View view) {
         int a = rand.nextInt(Jugadores.equipoEnemigo.size());
         int b = rand.nextInt(Jugadores.equipoEnemigo.size());
@@ -96,6 +104,12 @@ public class Torneo extends Fragment {
         enemigo4.setText(Jugadores.equipoEnemigo.get(d).getNombre());
         enemigo5.setText(Jugadores.equipoEnemigo.get(e).getNombre());
     }
+
+    /**
+     * @author ToNi_
+     * Metodo que se ejecuta para realizar el calculo de los equipos y las posibilidades de victoria
+     * dependiendo de la puntuacion de estos
+     */
     private void realizarBatalla(View view) {
         if (jugador1.getText() != "") {
             int puntosLigaMiEquipo = 0;
@@ -210,6 +224,11 @@ public class Torneo extends Fragment {
         }
     }
     //Mostramos los jugadores del equipo en los 5 text views
+
+    /**
+     * @author ToNi_
+     * Metodo que actualiza los elementos de texto para mostrar el equipo que tenemos guardado en la base de datos
+     */
     private void recuperarEquipo(View view) {
         DatabaseReference equipo = FirebaseDatabase.getInstance().getReference("Equipos");
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();

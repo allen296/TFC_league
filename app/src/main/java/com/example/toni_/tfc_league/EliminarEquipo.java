@@ -13,7 +13,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * @author ToNi_
+ * Clase para elminar el equipo, en un futuro servira para salir del torneo
  */
 public class EliminarEquipo extends Fragment {
 

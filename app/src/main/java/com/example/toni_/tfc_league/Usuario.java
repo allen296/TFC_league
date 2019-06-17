@@ -2,6 +2,11 @@ package com.example.toni_.tfc_league;
 
 import java.io.Serializable;
 
+/**
+ * @author ToNi_
+ * Clase que gestiona el usuario que vamos a añadir a base de datos y con el que se realiza el inicio de sesion
+ */
+
 public class Usuario implements Serializable {
 
     public String correo;

@@ -2,6 +2,13 @@ package com.example.toni_.tfc_league;
 
 import java.io.Serializable;
 
+/**
+ * @author ToNi_
+ * Clase que gestiona los jugadores y sus atributos principales, mediante los cuales se calcularan los enfrentamientos
+ * Destacar que en un principio los atributos serian recogidos desde la API oficial de league of legends, pero finalmente me ha resultado
+ * imposible hacer las llamadas correctamente
+ */
+
 public class Jugador implements Serializable {
 
     String liga;
