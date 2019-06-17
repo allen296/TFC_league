@@ -187,10 +187,15 @@ public class Torneo extends Fragment {
             int n = rand.nextInt(100);
 
             if (puntosLigaMiEquipo-puntosLigaEnemigo<=-20){
+
                 if (n<=30){
+
                     Toast.makeText(view.getContext(), "HAS GANADO", Toast.LENGTH_LONG).show();
+
                 }else{
+
                     Toast.makeText(view.getContext(), "HAS PERDIDO", Toast.LENGTH_LONG).show();
+
                 }
             }else if ((puntosLigaMiEquipo-puntosLigaEnemigo>-20)&&(puntosLigaMiEquipo-puntosLigaEnemigo<=-10)){
                 if (n<=40){
